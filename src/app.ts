@@ -19,6 +19,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://frontend-new-omega-six.vercel.app",
+  "https://frontend-new-ijse1.vercel.app",
 ];
 
 app.use(
