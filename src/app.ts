@@ -20,7 +20,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://ace-exam-front-end-z9bj.vercel.app",
+      "https://frontend-new-omega-six.vercel.app/",
     ],
     credentials: true,
   })
