@@ -16,13 +16,24 @@ import analyticsRouter from "./routes/analytics.route";
 const app = express();
 
 // CORS Configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://frontend-new-omega-six.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://frontend-new-omega-six.vercel.app/",
-    ],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
   })
 );
 
